@@ -1,0 +1,14 @@
+{
+  "name": "css-reset-comparison",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:samuelsilvadev/css-reset-comparison.git",
+  "author": "Samuel Silva <samuelsilvawb@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "css-minify": "^2.0.0"
+  },
+  "scripts": {
+    "minify": "css-minify -d css -o dist"
+  }
+}
