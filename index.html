@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Reset Fight</title>
+    <style>
+      [data-load-css] {
+        border: 4px solid black;
+        padding: 20px;
+        background: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Follow the steps below to check the difference among the files</h1>
+    <ol>
+      <li>Open your devtools to check the difference among all the files</li>
+      <li>Start clicking on the load buttons</li>
+    </ol>
+    <section>
+      <h2>Non optimized versions</h2>
+      <ul>
+        <li>
+          <a href="./css/old-reset.css">Previous version of CSS reset</a> -
+          <button data-load-css>Load</button>
+        </li>
+        <li>
+          <a href="./css/new-reset.css">Updated version of CSS reset</a> -
+          <button data-load-css>Load</button>
+        </li>
+      </ul>
+    </section>
+    <script>
+      const $loadCssButtons = document.querySelectorAll("[data-load-css]");
+
+      $loadCssButtons.forEach((button) => {
+        button.addEventListener(
+          "click",
+          () => {
+            const style = document.createElement("link");
+            style.href = button.previousElementSibling.href;
+            style.rel = "stylesheet";
+            document.head.appendChild(style);
+          },
+          { once: true }
+        );
+      });
+    </script>
+  </body>
+</html>
