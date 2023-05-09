@@ -6,19 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Reset Fight</title>
     <style>
+      html {
+        background-color: #f1f5f9;
+        font-family: sans-serif;
+        padding: 20px;
+      }
+
       [data-load-css] {
         border: 4px solid black;
         padding: 20px;
         background: none;
         cursor: pointer;
       }
+
+      [data-load-css]:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        border-color: transparent;
+      }
+
+      ol li {
+        font-size: 22px;
+      }
+
+      ol li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      section li {
+        font-size: 18px;
+      }
+
+      section li:not(:last-child) {
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
     <h1>Follow the steps below to check the difference among the files</h1>
     <ol>
-      <li>Open your devtools and naviagte to the network tab to check the size difference among all the files</li>
-      <li>Start clicking on the load buttons</li>
+      <li>
+        Open your devtools and navigate to the network tab to check the size
+        difference among all the files
+      </li>
+      <li>Clear the previews requests to make the comparison easier</li>
+      <li>Start clicking on the load buttons below to see the results</li>
     </ol>
     <section>
       <h2>Non optimized versions</h2>
@@ -57,6 +89,7 @@
             style.href = button.previousElementSibling.href;
             style.rel = "stylesheet";
             document.head.appendChild(style);
+            button.disabled = true;
           },
           { once: true }
         );
